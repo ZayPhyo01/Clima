@@ -11,6 +11,9 @@ import Foundation
 class  WeatherModel : WeatherNetworkDelegate {
     func onSuccess(with vo: WeatherVo) {
         print("temp : \(vo.main.temp)")
+        if let d = delegate {
+            d.onSuccess(with: vo)
+        }
     }
     
     func onError(s: String) {

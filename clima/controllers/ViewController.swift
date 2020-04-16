@@ -11,7 +11,9 @@ import UIKit
 class ViewController: UIViewController  , WeatherDelegate {
     
     func onSuccess(with vo: WeatherVo) {
-         
+        DispatchQueue.main.async{
+            self.tvTemp.text = vo.main.temp.toString()
+        }
     }
     
     func onError(s: String) {
@@ -28,6 +30,7 @@ class ViewController: UIViewController  , WeatherDelegate {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBOutlet weak var tvTemp: UILabel!
+    
 }
 
